@@ -3,11 +3,12 @@ from ethprivacy.entity_api import EntityAPI
 from ethprivacy.node_embeddings import *
 from ethprivacy.tornado_mixer import TornadoQueries
 
+data_dir = "../data"
+output_dir = "../results"
+
 if len(sys.argv) < 4:
     print("Usage:train_node_embedding.py <algo> <exclude_tornado> <sample_id> <workers>")
 else:
-    data_dir = "../data"
-    output_dir = "../results"
     algo = sys.argv[1]#"netmf"
     exclude_tornado = sys.argv[2] == "True"
     sample_id = sys.argv[3]

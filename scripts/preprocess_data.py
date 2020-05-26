@@ -1,14 +1,11 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 sns.set(font_scale = 2)
 sns.set_style("whitegrid")
-
 import os
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
-
 from ethprivacy.entity_api import EntityAPI
 from ethprivacy.topic_analysis import addresses_of_interest
 
