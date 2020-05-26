@@ -111,5 +111,5 @@ print(df.shape)
 print(df[["is_ens","is_tornado","is_hd"]].sum(axis=0))
 
 # # 4.) Export preprocessed data
-filtered.to_csv("%s/filtered_with_tokentx.csv" % output_dir, index=False)
+filtered.to_csv("%s/filtered_data.csv" % output_dir, index=False)
 print("Done")
