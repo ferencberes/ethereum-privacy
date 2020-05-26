@@ -115,7 +115,7 @@ class EntityAPI():
         num_ens_for_addr = self.ens_pairs.groupby("address")["name"].nunique().sort_values(ascending=False).reset_index()
         excluded = list(num_ens_for_addr[num_ens_for_addr["name"] > self.max_ens_per_address]["address"])
         self.ens_pairs = self.ens_pairs[~self.ens_pairs["address"].isin(excluded)]
-        print("Num of addresses excluded from ens pairs: %i" % len(set(excluded)))
+        print("Number of addresses excluded from ens pairs: %i" % len(set(excluded)))
         old_normal_size = len(self.normal_txs)
         old_token_size = len(self.token_txs)
         self.normal_txs = filter_tx_df(self.normal_txs, self, self.address_filter, self.hash_to_remove)
