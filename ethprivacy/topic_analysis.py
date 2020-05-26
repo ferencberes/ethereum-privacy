@@ -110,7 +110,7 @@ def addresses_of_interest(entity_api, with_tornado=True, with_hd=True, verbose=T
     tornado_addresses = list(tornado_deposits.union(tornado_withraws))
     if verbose:
         print("Number of Tornado addresses:", len(tornado_addresses))
-    humanity_dao_addresses = set(pd.read_csv("%s/humanity_dao_twitter_and_addresses.csv" % entity_api.data_dir)["eth_address"])
+    humanity_dao_addresses = set(pd.read_csv("%s/humanity_dao_addresses.csv" % entity_api.data_dir)["eth_address"])
     if verbose:
         print("Number of Humanity-Dao addresses:", len(humanity_dao_addresses))
     addresses = ens_addresses.copy()
