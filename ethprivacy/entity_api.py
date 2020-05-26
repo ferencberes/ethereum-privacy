@@ -68,17 +68,17 @@ def filter_tx_df(df, api, address_filter, hash_to_remove=[]):
     return tmp_df
     
 class EntityAPI():
-    def __init__(self, data_dir, only_pos_tx=False, address_filter="aoi", max_ens_per_address=1, hash_to_remove=[]):
+    def __init__(self, data_dir, only_pos_tx=False, address_filter="aoi", hash_to_remove=[], verbose=False):
+        self.verbose = verbose
         self.data_dir = data_dir
         self.address_filter = address_filter
         self.hash_to_remove = hash_to_remove
         self.only_pos_tx = only_pos_tx
-        self.max_ens_per_address = max_ens_per_address
+        self.max_ens_per_address = 1
         self.ens_pairs = pd.read_csv("%s/all_ens_pairs.csv" % data_dir).drop("Unnamed: 0", axis=1)
         self.normal_txs = pd.read_csv("%s/raw_normal_txs.csv" % data_dir)
         self.token_txs = pd.read_csv("%s/raw_token_txs.csv" % data_dir)
         self._clean()
-        # only makes sense if self.max_ens_per_address == 1
         self.address2ens = dict(zip(self.ens_pairs["address"], self.ens_pairs["name"]))
         self._init_graphs()
         self.info()
@@ -115,12 +115,14 @@ class EntityAPI():
         num_ens_for_addr = self.ens_pairs.groupby("address")["name"].nunique().sort_values(ascending=False).reset_index()
         excluded = list(num_ens_for_addr[num_ens_for_addr["name"] > self.max_ens_per_address]["address"])
         self.ens_pairs = self.ens_pairs[~self.ens_pairs["address"].isin(excluded)]
-        print("Number of addresses excluded from ens pairs: %i" % len(set(excluded)))
+        if self.verbose:
+            print("Number of addresses excluded from ens pairs: %i" % len(set(excluded)))
         old_normal_size = len(self.normal_txs)
         old_token_size = len(self.token_txs)
         self.normal_txs = filter_tx_df(self.normal_txs, self, self.address_filter, self.hash_to_remove)
         self.token_txs = filter_tx_df(self.token_txs, self, self.address_filter, self.hash_to_remove)
-        print("Normal", len(self.normal_txs) / old_normal_size, "Token", len(self.token_txs) / old_token_size)
+        if self.verbose:
+            print("Normal", len(self.normal_txs) / old_normal_size, "Token", len(self.token_txs) / old_token_size)
         self.token_txs["tx_type"] = "token"
         cols = list(self.normal_txs.columns)
         cols.remove("isError")

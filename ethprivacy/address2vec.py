@@ -222,7 +222,7 @@ class Address2Vec():
     def run_tornado(self, query_objects, model_id, filters=["none", "past", "week", "day"]):
         """Evaluate representations for Tornado withdraw-deposit heuristics"""
         res = []
-        pbar = tqdm(total=len(query_objects), mininterval=60)
+        pbar = tqdm(total=len(query_objects))
         for tq in query_objects:
             records = []
             for tup in tq.tornado_tuples:

@@ -1,6 +1,7 @@
 from ethprivacy.entity_api import EntityAPI
 from ethprivacy.address2vec import Address2Vec
 from ethprivacy.evaluation import get_avg_rank
+from ethprivacy.tornado_mixer import TornadoQueries
 import pandas as pd
 import numpy as np
 import datetime as dt
@@ -8,25 +9,33 @@ import os, time, sys
 
 data_dir = "../data"
 results_dir = "../results"
+filter_ids = ["past", "week", "day"]
 
 def run(hour_bins, gas_bins, algo, sample_id):
-    if not os.path.exists(results_dir + "/ens"):
-        os.makedirs(results_dir + "/ens")
+    if not os.path.exists(results_dir + "/tornado"):
+        os.makedirs(results_dir + "/tornado")
 
     use_stats = True
     use_distrib = True
-    min_tx_cnt = 5
+    min_tx_cnt = 1
 
     use_hour = hour_bins != -1
     use_gas = gas_bins != -1
 
     # # Load data
     api = EntityAPI(data_dir)
+    max_time = api.events["timeStamp"].max()
+    
+    tq0_1 = TornadoQueries(mixer_str_value="0.1", max_time=max_time)
+    tq1 = TornadoQueries(mixer_str_value="1", max_time=max_time)
+    tq10 = TornadoQueries(mixer_str_value="10", max_time=max_time)
+    queries = [tq0_1, tq1, tq10]
+    
     filtered = pd.read_csv("%s/filtered_data.csv" % results_dir)
 
     node_embs = {}
     if sample_id != None:
-        node_emb_dir = results_dir + "/node_embeddings_exFalse/" + str(sample_id)
+        node_emb_dir = results_dir + "/node_embeddings_exTrue/" + str(sample_id)
         files = os.listdir(node_emb_dir)
         for f in files:
             algo_id = f.split("_")[0]
@@ -43,23 +52,28 @@ def run(hour_bins, gas_bins, algo, sample_id):
     print("Representation id:", ae.id)
     print("Representation shape:", ae.X.shape)
 
-    # # Evaluate embeddings for ENS names
-    idx_pairs, ens_names = ae.get_idx_pairs(api)
-    print("Evaluated address pairs:", len(idx_pairs))
-    ens_result = ae.run_ens(idx_pairs, ae.id)
-    ens_perf, _ = get_avg_rank(ens_result)
-    print(ens_perf)
+    # # Evaluate embeddings for Tornado withdraw-deposit address pairs
+    pairs = []
+    for tq in queries:
+        pairs.append(tq.tornado_pairs[["sender","receiver"]])
+    pairs = pd.concat(pairs).reset_index(drop=True)
+    pairs = pairs.drop_duplicates()
+    print("Evaluated withdraw-deposit:", pairs.shape)
+    
+    tornado_result = ae.run_tornado(queries, ae.id, filters=filter_ids)
+    tornado_perf, _ = get_avg_rank(tornado_result)
+    print(tornado_perf)
 
     # # Export
     while True:
         time_id = str(dt.datetime.now()).split(".")[0].replace(" ","_")
         experiment_id = "%s-%s" % (time_id, ae.id)
-        output_file = "%s/ens/%s.csv" % (results_dir, experiment_id)
+        output_file = "%s/tornado/%s.csv" % (results_dir, experiment_id)
         if os.path.exists(output_file):
             time.sleep(np.random.randint(1,10))
             continue
         else:
-            ens_result.to_csv(output_file, index=False)
+            tornado_result.to_csv(output_file, index=False)
             break
     
 if __name__ == "__main__":
