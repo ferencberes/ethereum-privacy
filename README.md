@@ -1,4 +1,6 @@
-﻿# LNTrafficSimulator (ethprivacy package)
+﻿# ethereum-privacy (ethprivacy package)
+
+Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum deanonymization. 
 
 # Introduction
 
@@ -28,8 +30,9 @@ pip install .
 
 # Data
 
-**You must download our Ethereum data in order to use our code!** 
-You can choose from the commands below or just simply use this [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip) to access the data.
+**You must download our Ethereum data in order to use our code!**
+
+You can choose from the commands below or just simply use this download [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip).
 
 ### a.)From Linux
 ```bash
@@ -48,8 +51,8 @@ ls data
 ```bash
 bash run_tests.sh
 ```
-- We also provide a script to run every experiment from our paper.
-- **Detailed documentation of the *ethprivacy* package will be published in the upcoming weeks.**
+- We also provide a [script](run_all.sh) to run every experiment from our paper.
+- **A documentation for the *ethprivacy* package will be released in the upcoming weeks.**
 
 
 # Acknowledgements
