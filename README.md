@@ -1,12 +1,12 @@
 ﻿# ethereum-privacy (ethprivacy package)
 
-Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum deanonymization. 
+Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum user profiling and deanonymization. 
 
 # Introduction
 
-In this work we assess the privacy shortcomings of Ethereum's account-based model. We collect and analyze a wide source of Etherum related data, including [Ethereum name service](https://ens.domains/), [Etherscan](https://etherscan.io/) blockchain explorer, [Tornado Cash](https://tornado.cash/) mixer contracts, and Twitter. To the best of our knowledge, we are the first to propose and implement Ethereum user profiling techniques based on user quasi-identifiers. Using the learned representations we deanonymize Ethereum addresses that belong to the same user. 
+In this work we assess the privacy shortcomings of Ethereum's account-based model. We collect and analyze a wide source of Etherum related data, including [Ethereum name service](https://ens.domains/), [Etherscan](https://etherscan.io/) blockchain explorer, [Tornado Cash](https://tornado.cash/) mixer contracts, and Twitter. To the best of our knowledge, we are the first to propose and implement Ethereum user profiling techniques based on user quasi-identifiers. By learning Ethereum address representations we deanonymize accounts that belong to the same user. 
 
-In this repository publish our data and code for further research, in the from of a Python package **(ethprivacy)**.
+In this repository we publish our data and code for further research, in the from of a Python package **(ethprivacy)**.
 
 ## Cite
 
@@ -20,7 +20,7 @@ Our arxiv paper is coming soon.
 
 # Installation
 
-After cloning the repository you can install the simulator with `pip`.
+After cloning the repository you can install the **ethprivacy** package with `pip`.
 
 ```bash
 git clone https://github.com/ferencberes/ethereum-privacy.git
@@ -51,9 +51,8 @@ ls data
 ```bash
 bash run_tests.sh
 ```
-- We also provide a [script](run_all.sh) to run every experiment from our paper.
+- We also provide a [script](run_all.sh) to run every experiment from our paper. *We recommend you to parallelize the commands as it could take days to execute them on a single thread.*
 - **A documentation for the *ethprivacy* package will be released in the upcoming weeks.**
-
 
 # Acknowledgements
 
