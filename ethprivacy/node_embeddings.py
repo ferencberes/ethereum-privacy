@@ -58,7 +58,7 @@ def karate_factory(algo, dim, nwalks, workers):
     return karate_obj
 
 class NodeEmbedder():
-    def __init__(self, api, use_normal=True, use_token=False, use_contract=False, core_number=2, edges_to_remove=[],  verbose=True):
+    def __init__(self, api, use_normal=True, use_token=True, use_contract=False, core_number=2, edges_to_remove=[],  verbose=True):
         self.verbose = verbose
         self.normal_G = clean_graph(api.normal_graph.G)
         self.token_G = clean_graph(api.token_graph.G)
