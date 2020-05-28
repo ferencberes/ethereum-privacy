@@ -9,4 +9,4 @@ install:
   - bash download_data.sh
 # command to run tests
 script:
-  - bash run_tests.py
+  - bash run_tests.sh

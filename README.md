@@ -1,5 +1,7 @@
 ﻿# ethereum-privacy (ethprivacy package)
 
+[![Build Status](https://travis-ci.org/ferencberes/ethereum-privacy.svg?branch=master)](https://travis-ci.org/ferencberes/ethereum-privacy)
+
 Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum user profiling and deanonymization. 
 
 # Introduction
@@ -31,7 +33,7 @@ pip install .
 
 **You must download our Ethereum data in order to use our code!**
 
-You can choose from the commands below or just simply use this download [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip).
+You can choose to use our download script below or just simply use this [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip).
 
 ```bash
 bash download_data.sh
@@ -44,7 +46,7 @@ ls data
 ```bash
 bash run_tests.sh
 ```
-- We also provide a [script](run_all.sh) to run every experiment from our paper. *We recommend you to parallelize the commands as it could take days to execute them on a single thread.*
+- We also provide a [script](run_all.sh) to run every experiment from our paper. *We recommend you to parallelize the tasks as it could take days to execute them on a single thread.*
 - **A documentation for the *ethprivacy* package will be released in the upcoming weeks.**
 
 # Acknowledgements
