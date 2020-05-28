@@ -14,8 +14,7 @@ Our arxiv paper is coming soon.
 
 # Requirements
 
-- UNIX or macOS environment
-    - For macOS users: you need to have wget (brew install wget) 
+- UNIX environment
 - This package was developed in Python 3.6 (conda environment)
 
 # Installation
@@ -34,14 +33,8 @@ pip install .
 
 You can choose from the commands below or just simply use this download [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip).
 
-### a.)From Linux
 ```bash
 bash download_data.sh
-ls data
-```
-### b.)From macOS
-```bash
-sh download_data.sh
 ls data
 ```
 
