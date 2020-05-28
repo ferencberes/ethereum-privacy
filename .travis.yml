@@ -6,7 +6,7 @@ python:
 # command to install dependencies
 install:
   - pip install .
-  - bash download_data.sh
+  - bash -e download_data.sh
 # command to run tests
 script:
-  - bash run_tests.sh
+  - bash -e run_tests.sh

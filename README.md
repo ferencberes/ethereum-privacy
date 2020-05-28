@@ -44,7 +44,7 @@ ls data
 
 - By running the following script you can check your setup.
 ```bash
-bash run_tests.sh
+bash -e run_tests.sh
 ```
 - We also provide a [script](run_all.sh) to run every experiment from our paper. *We recommend you to parallelize the tasks as it could take days to execute them on a single thread.*
 - **A documentation for the *ethprivacy* package will be released in the upcoming weeks.**

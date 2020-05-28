@@ -2,7 +2,6 @@
 pushd scripts
 
 echo "### Preprocess ###"
-
 python preprocess_data.py
 
 echo "### ENS experiments ###"
