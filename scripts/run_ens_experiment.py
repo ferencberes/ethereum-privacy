@@ -12,7 +12,7 @@ results_dir = "../results"
 def run(hour_bins, gas_bins, algo, sample_id):
     if not os.path.exists(results_dir + "/ens"):
         os.makedirs(results_dir + "/ens")
-
+    print("arguments:", hour_bins, gas_bins, algo, sample_id)
     use_stats = True
     use_distrib = True
     min_tx_cnt = 5

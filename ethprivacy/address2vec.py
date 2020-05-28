@@ -113,6 +113,7 @@ class Address2Vec():
         if self.verbose:
             print("Statistics based representation dimensions:", A.shape)
         # replace missing values for std
+        print(A.shape)
         A = np.nan_to_num(A,nan=0.0)
         return A
     
