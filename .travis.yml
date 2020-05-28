@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+# command to install dependencies
+install:
+  - pip install .
+  - bash download_data.sh
+# command to run tests
+script:
+  - python run_tests.py
