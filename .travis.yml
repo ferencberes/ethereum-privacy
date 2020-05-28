@@ -6,6 +6,7 @@ python:
 # command to install dependencies
 install:
   - pip install .
+  - pip install numpy --upgrade
   - bash -e download_data.sh
 # command to run tests
 script:
