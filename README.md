@@ -12,7 +12,7 @@ In this repository we publish our data and code for further research, in the fro
 
 ## Cite
 
-Our arxiv paper is coming soon.
+Our work is [available on arxiv](https://arxiv.org/pdf/2005.14051.pdf) as a preprint.
 
 # Requirements
 
