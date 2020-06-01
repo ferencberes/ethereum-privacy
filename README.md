@@ -12,7 +12,18 @@ In this repository we publish our data and code for further research, in the fro
 
 ## Cite
 
-Our work is [available on arxiv](https://arxiv.org/pdf/2005.14051.pdf) as a preprint.
+You can find our pre-print [paper](https://arxiv.org/pdf/2005.14051.pdf) on arXiv. Please cite our work if you use our code or the related data set.
+
+```
+@misc{beres2020blockchain,
+    title={Blockchain is Watching You: Profiling and Deanonymizing Ethereum Users},
+    author={Ferenc Béres and István András Seres and András A. Benczúr and Mikerah Quintyne-Collins},
+    year={2020},
+    eprint={2005.14051},
+    archivePrefix={arXiv},
+    primaryClass={cs.CR}
+}
+```
 
 # Requirements
 
