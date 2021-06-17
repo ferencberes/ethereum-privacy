@@ -44,7 +44,7 @@ pip install .
 
 **You must download our Ethereum data in order to use our code!**
 
-You can choose to use our download script below or just simply use this [link](https://dms.sztaki.hu/~fberes/ln/ln_data_2019-10-29.zip).
+You can choose to use our download script below or just simply use this [link](https://dms.sztaki.hu/~fberes/eth/eth_privacy_2020-05-26.zip).
 
 ```bash
 bash download_data.sh
