@@ -1,6 +1,6 @@
 ﻿# ethereum-privacy (ethprivacy package)
 
-[![Build Status](https://travis-ci.org/ferencberes/ethereum-privacy.svg?branch=master)](https://travis-ci.org/ferencberes/ethereum-privacy)
+![build](https://github.com/ferencberes/ethereum-privacy/actions/workflows/main.yml/badge.svg)
 
 Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum user profiling and deanonymization. 
 
@@ -37,7 +37,8 @@ After cloning the repository you can install the **ethprivacy** package with `pi
 ```bash
 git clone https://github.com/ferencberes/ethereum-privacy.git
 cd ethereum-privacy
-pip install .
+python setup.py install
+pip install karateclub
 ```
 
 # Data
