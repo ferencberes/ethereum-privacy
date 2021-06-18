@@ -1,0 +1,38 @@
+name: CI
+
+on:
+
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+    build:
+      runs-on: ${{ matrix.os }}
+      strategy:
+        matrix:
+          os: [ubuntu-18.04, ubuntu-latest]
+          python-version: ['3.6', '3.7', '3.8','3.9']
+      steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: which python
+      - name: Run installation.
+        run: |
+         pip install codecov
+         pip install .[test]
+         python setup.py install
+         pip install karateclub
+      - name: Test coverage.
+        run: |
+         bash -e download_data.sh
+         bash -e run_tests.sh
+         python setup.py test
+         codecov
+      - name: Code Coverage
+        uses: codecov/codecov-action@v1
