@@ -1,6 +1,7 @@
-﻿# ethereum-privacy (ethprivacy package)
+# ethereum-privacy (ethprivacy package)
 
 ![build](https://github.com/ferencberes/ethereum-privacy/actions/workflows/main.yml/badge.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django)
 
 Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum user profiling and deanonymization. 
 
@@ -45,7 +46,7 @@ pip install karateclub
 
 **You must download our Ethereum data in order to use our code!**
 
-You can choose to use our download script below or just simply use this [link](https://dms.sztaki.hu/~fberes/eth/eth_privacy_2020-05-26.zip).
+You can choose to use our download script below or just simply use this [link](https://dms.sztaki.hu/~fberes/eth/eth_privacy_2021-06-18.zip).
 
 ```bash
 bash download_data.sh

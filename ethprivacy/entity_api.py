@@ -75,7 +75,9 @@ class EntityAPI():
         self.hash_to_remove = hash_to_remove
         self.only_pos_tx = only_pos_tx
         self.max_ens_per_address = 1
-        self.ens_pairs = pd.read_csv("%s/all_ens_pairs.csv" % data_dir).drop("Unnamed: 0", axis=1)
+        self.ens_pairs = pd.read_csv("%s/all_ens_pairs.csv" % data_dir)
+        if "Unnamed: 0" in self.ens_pairs.columns:
+            self.ens_pairs.drop("Unnamed: 0", axis=1, inplace=True)
         self.normal_txs = pd.read_csv("%s/raw_normal_txs.csv" % data_dir)
         self.token_txs = pd.read_csv("%s/raw_token_txs.csv" % data_dir)
         self._clean()
