@@ -1,7 +1,7 @@
 # ethereum-privacy (ethprivacy package)
 
 ![build](https://github.com/ferencberes/ethereum-privacy/actions/workflows/main.yml/badge.svg)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django)
+![PyPI - Python Version](https://img.shields.io/badge/python-3.6%20|%203.7%20|%203.8%20|%203.9-blue.svg)
 
 Latest joint work of [Ferenc Béres](https://github.com/ferencberes), [István András Seres](https://github.com/seresistvanandras), András A. Benczúr and Mikerah Quintyne-Collins on Ethereum user profiling and deanonymization. 
 
